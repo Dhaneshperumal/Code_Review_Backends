@@ -30,7 +30,6 @@ build/
 !**/src/test/**/build/
 
 ### VS Code ###
-.vscode/
 
 /target
 /logs
@@ -39,3 +38,5 @@ build/
 *.jar
 *.war
 *.class
+config.bat
+node_modules

@@ -1,21 +1,21 @@
-# Use OpenJDK 17 image as the base image
+# Use the official OpenJDK 17 image
 FROM openjdk:17-jdk-slim
 
 # Set the working directory inside the container
 WORKDIR /app
 
-# Copy the pom.xml and source code into the container
-COPY pom.xml /app/
-COPY src /app/src/
+# Copy the Maven project files
+COPY pom.xml .
+COPY src ./src
 
-# Run the Maven build inside the container
+# Build the application
 RUN mvn clean package -DskipTests
 
-# Copy the JAR file created by Maven to the container
+# Copy the JAR file to the container
 COPY target/code_review-0.0.1-SNAPSHOT.jar app.jar
 
-# Expose the port your application runs on (usually 8080 for Spring Boot)
+# Expose the application port
 EXPOSE 8080
 
-# Command to run the Spring Boot application
-CMD ["java", "-jar", "app.jar"]
+# Run the application
+ENTRYPOINT ["java", "-jar", "app.jar"]
