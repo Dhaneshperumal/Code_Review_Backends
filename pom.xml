@@ -13,6 +13,8 @@
     <groupId>com.customer</groupId>
     <artifactId>code_review</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
     <name>code_review</name>
     <description>Code Review Platform using Spring Boot</description>
 
